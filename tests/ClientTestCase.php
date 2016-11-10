@@ -7,28 +7,13 @@ use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ClientException;
-use Webmax\VelmaClient\VelmaClient;
+use Webmax\VelocifyClient\VelocifyClient;
 
 abstract class ClientTestCase extends PHPUnit_Framework_TestCase
 {
-    const API_KEY = '<api-key>';
-    const ENDPOINT = '<endpoint>';
-    const SPONSOR = '<sponsor>';
-    const SPONSOR_KEY = '<sponsor-key>';
-    const CLIENT_KEY = '<client-key>';
-
     public function createClient(array $config = array(), $serializerCacheDirectory = null, $debug = true)
     {
-        return new VelmaClient(
-            self::API_KEY,
-            self::ENDPOINT,
-            self::SPONSOR,
-            self::SPONSOR_KEY,
-            self::CLIENT_KEY,
-            $config,
-            $serializerCacheDirectory,
-            $debug
-        );
+        return new VelocifyClient();
     }
 
     protected function getData($file)
